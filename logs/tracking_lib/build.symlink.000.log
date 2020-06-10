@@ -1,6 +1,0 @@
-Symlinking /home/master/sl_ws/lidar_perception/devel/share/tracking_lib/cmake/tracking_libConfig.cmake
-Symlinking /home/master/sl_ws/lidar_perception/devel/share/tracking_lib/cmake/tracking_libConfig-version.cmake
-Symlinking /home/master/sl_ws/lidar_perception/devel/lib/libtracking_lib.so
-Symlinking /home/master/sl_ws/lidar_perception/devel/lib/tracking_lib/tracking_lib_tracking_node
-Symlinking /home/master/sl_ws/lidar_perception/devel/lib/tracking_lib/tracking_lib_detection_node
-Symlinking /home/master/sl_ws/lidar_perception/devel/lib/pkgconfig/tracking_lib.pc

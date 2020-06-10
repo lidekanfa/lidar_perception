@@ -1,6 +1,0 @@
-[35m[1mScanning dependencies of target feature_extractors_lib[0m
-[ 25%] [32mBuilding CXX object CMakeFiles/feature_extractors_lib.dir/src/eigenvalue_feature_extractor.cpp.o[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/feature_extractors_lib.dir/src/esf_feature_extractor.cpp.o[0m
-[ 75%] [32mBuilding CXX object CMakeFiles/feature_extractors_lib.dir/src/histogram_feature_extractor.cpp.o[0m
-[100%] [32m[1mLinking CXX shared library /home/master/sl_ws/lidar_perception/devel/.private/feature_extractors_lib/lib/libfeature_extractors_lib.so[0m
-[100%] Built target feature_extractors_lib

@@ -1,4 +1,0 @@
-[35m[1mScanning dependencies of target object_builders_lib[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/object_builders_lib.dir/src/min_box_object_builder.cpp.o[0m
-[100%] [32m[1mLinking CXX shared library /home/master/sl_ws/lidar_perception/devel/.private/object_builders_lib/lib/libobject_builders_lib.so[0m
-[100%] Built target object_builders_lib
