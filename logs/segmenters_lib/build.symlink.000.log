@@ -1,0 +1,5 @@
+Symlinking /home/master/sl_ws/lidar_perception/devel/share/segmenters_lib/cmake/segmenters_libConfig-version.cmake
+Symlinking /home/master/sl_ws/lidar_perception/devel/share/segmenters_lib/cmake/segmenters_libConfig.cmake
+Symlinking /home/master/sl_ws/lidar_perception/devel/lib/libsegmenters_lib.so
+Symlinking /home/master/sl_ws/lidar_perception/devel/lib/segmenters_lib/detection_node
+Symlinking /home/master/sl_ws/lidar_perception/devel/lib/pkgconfig/segmenters_lib.pc

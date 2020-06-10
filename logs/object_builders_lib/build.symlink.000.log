@@ -1,0 +1,4 @@
+Symlinking /home/master/sl_ws/lidar_perception/devel/share/object_builders_lib/cmake/object_builders_libConfig-version.cmake
+Symlinking /home/master/sl_ws/lidar_perception/devel/share/object_builders_lib/cmake/object_builders_libConfig.cmake
+Symlinking /home/master/sl_ws/lidar_perception/devel/lib/libobject_builders_lib.so
+Symlinking /home/master/sl_ws/lidar_perception/devel/lib/pkgconfig/object_builders_lib.pc

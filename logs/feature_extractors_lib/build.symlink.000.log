@@ -1,0 +1,4 @@
+Symlinking /home/master/sl_ws/lidar_perception/devel/share/feature_extractors_lib/cmake/feature_extractors_libConfig.cmake
+Symlinking /home/master/sl_ws/lidar_perception/devel/share/feature_extractors_lib/cmake/feature_extractors_libConfig-version.cmake
+Symlinking /home/master/sl_ws/lidar_perception/devel/lib/libfeature_extractors_lib.so
+Symlinking /home/master/sl_ws/lidar_perception/devel/lib/pkgconfig/feature_extractors_lib.pc

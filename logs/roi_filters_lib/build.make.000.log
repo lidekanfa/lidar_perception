@@ -1,0 +1,4 @@
+[35m[1mScanning dependencies of target roi_filters_lib[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/roi_filters_lib.dir/src/tmp.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library /home/master/sl_ws/lidar_perception/devel/.private/roi_filters_lib/lib/libroi_filters_lib.so[0m
+[100%] Built target roi_filters_lib

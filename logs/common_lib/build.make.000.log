@@ -1,0 +1,32 @@
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target _autosense_msgs_generate_messages_check_deps_TrackingFixedTrajectoryArray[0m
+[35m[1mScanning dependencies of target _autosense_msgs_generate_messages_check_deps_PointCloud2Array[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _autosense_msgs_generate_messages_check_deps_TrackingObjectArray[0m
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target _autosense_msgs_generate_messages_check_deps_TrackingObjectArray
+[  0%] Built target _autosense_msgs_generate_messages_check_deps_TrackingFixedTrajectoryArray
+[  0%] Built target _autosense_msgs_generate_messages_check_deps_PointCloud2Array
+[35m[1mScanning dependencies of target autosense_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target autosense_msgs_generate_messages_py[0m
+[ 11%] [34m[1mGenerating C++ code from autosense_msgs/TrackingObjectArray.msg[0m
+[ 33%] [34m[1mGenerating Python from MSG autosense_msgs/TrackingFixedTrajectoryArray[0m
+[ 33%] [34m[1mGenerating C++ code from autosense_msgs/TrackingFixedTrajectoryArray.msg[0m
+[ 44%] [34m[1mGenerating Python from MSG autosense_msgs/TrackingObjectArray[0m
+[ 66%] [34m[1mGenerating C++ code from autosense_msgs/PointCloud2Array.msg[0m
+[ 66%] [34m[1mGenerating Python from MSG autosense_msgs/PointCloud2Array[0m
+[ 77%] [34m[1mGenerating Python msg __init__.py for autosense_msgs[0m
+[34m[1mGeneate messages link into common include[0m
+[ 77%] Built target autosense_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target common_lib[0m
+[ 88%] [32mBuilding CXX object CMakeFiles/common_lib.dir/src/algos/hungarian_bigraph_matcher.cpp.o[0m
+[ 88%] Built target autosense_msgs_generate_messages_py
+[35m[1mScanning dependencies of target autosense_msgs_generate_messages[0m
+[ 88%] Built target autosense_msgs_generate_messages
+[100%] [32m[1mLinking CXX shared library /home/master/sl_ws/lidar_perception/devel/.private/common_lib/lib/libcommon_lib.so[0m
+[100%] Built target common_lib
