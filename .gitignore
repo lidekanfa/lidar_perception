@@ -8,4 +8,5 @@ include/common/srvs/
 build/*
 install/*
 devel/*
-log/*
+logs/*
+.catkin*
