@@ -10,3 +10,4 @@ install/*
 devel/*
 logs/*
 .catkin*
+.vscode

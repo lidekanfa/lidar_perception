@@ -3,7 +3,7 @@
 
 PclTestCore::PclTestCore(ros::NodeHandle &nh)
 {
-    sub_point_cloud_ = nh.subscribe("/raw_points", 10, &PclTestCore::point_cb, this);
+    sub_point_cloud_ = nh.subscribe("/points_raw", 10, &PclTestCore::point_cb, this);
 
     pub_ground_ = nh.advertise<sensor_msgs::PointCloud2>("/filtered_points_ground", 10);
     pub_no_ground_ = nh.advertise<sensor_msgs::PointCloud2>("/filtered_points_no_ground", 10);
@@ -24,7 +24,7 @@ void PclTestCore::clip_above(double clip_height, const pcl::PointCloud<pcl::Poin
 
     cliper.setInputCloud(in);
     pcl::PointIndices indices;
-#pragma omp for
+#pragma omp for       // OPENMP ACC
     for (size_t i = 0; i < in->points.size(); i++)
     {
         if (in->points[i].z > clip_height)
@@ -100,14 +100,15 @@ void PclTestCore::XYZI_to_RTZColor(const pcl::PointCloud<pcl::PointXYZI>::Ptr in
 
         out_organized_points[i] = new_point;
 
-        //radial divisions更加角度的微分组织射线
+        // 1.对同一角度的线束进行处理，要将原来直角坐标系的点云转换成柱坐标描述的点云数据结构
+        //radial divisions   resize角度的微分组织射线
         out_radial_divided_indices[radial_div].indices.push_back(i);
 
         out_radial_ordered_clouds[radial_div].push_back(new_point);
 
     } //end for
 
-    //将同一根射线上的点按照半径（距离）排序
+    // 2.将同一根射线上的点按照半径（距离）排序
 #pragma omp for
     for (size_t i = 0; i < radial_dividers_num_; i++)
     {
