@@ -51,6 +51,11 @@ void OnPointCloud(const sensor_msgs::PointCloud2ConstPtr& ros_pc2) {
     header.stamp = ros::Time::now();
 
     if (use_roi_filter_) {
+        /// @note added voxelGridFilter by Henry Pan at 2020.06.19
+        static const double_t kVoxelSize = 0.1f;
+        static const int kMinPointNumberPerVoxel = 1;
+        roi::voxelGridFilter<PointI>(kVoxelSize, kMinPointNumberPerVoxel, cloud);
+
         roi::applyROIFilter<PointI>(params_roi_, cloud);
     }
 

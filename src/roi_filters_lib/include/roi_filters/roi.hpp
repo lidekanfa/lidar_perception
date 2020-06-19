@@ -101,7 +101,7 @@ static void cylinderROIFilter(float radius_min,
 
         const double radius_min_squared = pow(radius_min, 2.0);
         const double radius_max_squared = pow(radius_max, 2.0);
-
+        #pragma omp for       // OPENMP ACC
         for (size_t pt = 0u; pt < cloud_in->size(); ++pt) {
             const PointT& point = cloud_in->points[pt];
             const double dist =
@@ -142,7 +142,7 @@ static void squareROIFilter(float radius_min,
         const float back = -radius_max;
         const float left = -radius_min;
         const float right = radius_min;
-
+        #pragma omp for       // OPENMP ACC
         for (size_t pt = 0u; pt < cloud_in->size(); ++pt) {
             const PointT& point = cloud_in->points[pt];
             // Step 1: filter out a large part
@@ -206,7 +206,7 @@ static void bevROIFilter(float x_forward,
         const float back = -x_back;
         const float left = half_width;
         const float right = -half_width;
-
+        // #pragma omp for       // OPENMP ACC
         for (size_t pt = 0u; pt < cloud_in->size(); ++pt) {
             const PointT& point = cloud_in->points[pt];
 

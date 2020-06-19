@@ -2,21 +2,21 @@ detect: {
   frame_id: "velodyne",
 
   sub_pc_topic: "/points_raw",
-  sub_pc_queue_size: 1,
+  sub_pc_queue_size: 5,
 
   pub_pc_ground_topic: "/segmenter/points_ground",
   pub_pc_nonground_topic: "/segmenter/points_nonground",
   pub_pc_clusters_topic: "/segmenter/points_clustered",
 
   ## Important to use roi filter for "Ground remover"
-  #use_roi_filter: false,
+  # use_roi_filter: false,
   use_roi_filter: true,
 
   ## Ground Segmenter
   # type: string
   # default: "GroundPlaneFittingSegmenter"
   ground_remover_type: "GroundPlaneFittingSegmenter",
-  #ground_remover_type: "GroundRANSACSegmenter",
+  # ground_remover_type: "GroundRANSACSegmenter",
   ## Segment non-ground point cloud, otherwise, only Ground Segmenter
   # default: false
   use_non_ground_segmenter: true,
