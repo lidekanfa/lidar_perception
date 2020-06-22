@@ -11,3 +11,4 @@ devel/*
 logs/*
 .catkin*
 .vscode
+src/.vscode
