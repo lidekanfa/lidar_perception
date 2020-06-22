@@ -68,6 +68,7 @@ void GroundPlaneFittingSegmenter::extractInitialSeeds(
     // the points inside the height threshold are used as the initial seeds for
     // the plane model estimation
     (*cloud_seeds).clear();
+#pragma omp for     // added by Henry Pan for acc
     for (size_t pt = 0u; pt < points.size(); ++pt) {
         if (points[pt].z < height_average + params_.gpf_th_seeds) {
             (*cloud_seeds).points.push_back(points[pt]);
@@ -87,6 +88,7 @@ model_t GroundPlaneFittingSegmenter::estimatePlane(
     // Create covariance matrix.
     // 1. calculate (x,y,z) mean
     float mean_x = 0., mean_y = 0., mean_z = 0.;
+#pragma omp for
     for (size_t pt = 0u; pt < cloud_ground.points.size(); ++pt) {
         mean_x += cloud_ground.points[pt].x;
         mean_y += cloud_ground.points[pt].y;
@@ -100,6 +102,7 @@ model_t GroundPlaneFittingSegmenter::estimatePlane(
     // 2. calculate covariance
     // cov(x,x), cov(y,y), cov(z,z)
     // cov(x,y), cov(x,z), cov(y,z)
+
     float cov_xx = 0., cov_yy = 0., cov_zz = 0.;
     float cov_xy = 0., cov_xz = 0., cov_yz = 0.;
     for (int i = 0; i < cloud_ground.points.size(); i++) {
@@ -121,6 +124,10 @@ model_t GroundPlaneFittingSegmenter::estimatePlane(
     Cov << cov_xx, cov_xy, cov_xz, cov_xy, cov_yy, cov_yz, cov_xz, cov_yz,
         cov_zz;
     Cov /= cloud_ground.points.size();
+    // // compute cov and mean added by Henry_Pan
+    // Eigen::Vector4f pc_mean;
+    // pcl::computeMeanAndCovarianceMatrix(*g_ground_pc, Cov, pc_mean);
+    // Eigen::Vector3f mean_seeds = pc_mean.head<3>();
 
     // Singular Value Decomposition: SVD
     Eigen::JacobiSVD<Eigen::MatrixXf> SVD(
@@ -167,11 +174,14 @@ void GroundPlaneFittingSegmenter::mainLoop(const PointICloud& cloud_in,
         for (auto p : cloud_in.points) {
             cloud_matrix.row(pi++) << p.x, p.y, p.z;
         }
+        // 初始的平面模型，计算点云中每一个点到该平面的正交投影的距离，即 points * normal_
         // distance to extimated ground plane model (N^T X)^T = (X^T N)
         Eigen::VectorXf dists = cloud_matrix * model.normal;
-        // threshold filter: N^T xi + d = dist < th_dist ==> N^T xi < th_dist -
-        // d
+        // 将这个距离与设定的阈值 ThdistThdist​ (即th_dist_d_) 比较，
+        // 当高度差小于此阈值，认为该点属于地面，当高度差大于此阈值，则为非地面点。
+        // threshold filter: N^T xi + d = dist < th_dist ==> N^T xi < th_dist - d
         double th_dist = params_.gpf_th_gnds - model.d;
+        // 经过分类以后的所有地面点被当作下一次迭代的种子点集，迭代优化。
         for (size_t pt = 0u; pt < dists.rows(); ++pt) {
             if (dists[pt] < th_dist) {
                 gnds_indices->indices.push_back(pt);
