@@ -111,13 +111,14 @@ struct SegmenterParams {
     double don_segmenter_ec_tolerance = 1.0;
 
     // Region growing parameters.
-    int rg_knn_for_normals = 0;
-    double rg_radius_for_normals = 0.0f;
-    double rg_curvature_threshold = 0.0f;
-    int rg_min_cluster_size;
-    int rg_max_cluster_size;
-    int rg_knn_for_growing;
-    double rg_smoothness_threshold_deg;
+    // added params for region growing Segmenter by Henry Pan
+    int rg_knn_for_normals = 2;
+    double rg_radius_for_normals = 5.0f;
+    double rg_curvature_threshold = 1.0f;
+    int rg_min_cluster_size = 2;
+    int rg_max_cluster_size = 100;
+    int rg_knn_for_growing = 5;
+    double rg_smoothness_threshold_deg = 3.0;
 
     // Region Euclidean Cluster Segmenter
     int rec_region_size;

@@ -34,7 +34,7 @@ RegionGrowingSegmenter::RegionGrowingSegmenter(const SegmenterParams &params)
         ROS_INFO_STREAM("Region Growing normals estimation based on knn "
                         << params_.rg_knn_for_normals << ".");
     }
-
+    // added params for region growing Segmenter by Henry Pan
     region_growing_estimator_.setMinClusterSize(params_.rg_min_cluster_size);
     region_growing_estimator_.setMaxClusterSize(params_.rg_max_cluster_size);
     region_growing_estimator_.setSearchMethod(kd_tree_);

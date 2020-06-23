@@ -100,7 +100,7 @@ void RegionEuclideanSegmenter::segment(
     for (size_t region = 0u; region < params_.rec_region_size; ++region) {
         PointICloudPtr cluster(new PointICloud);
         pcl::copyPointCloud(*cloud, nested_regions[region], *cluster);
-        cloud_clusters->push_back(cluster);
+        cloud_clusters.push_back(cluster);
     }
 #else
     // variables for clusters merge adjacent regions

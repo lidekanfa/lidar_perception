@@ -52,6 +52,8 @@ void OnPointCloud(const sensor_msgs::PointCloud2ConstPtr& ros_pc2) {
 
     if (use_roi_filter_) {
         /// @note added voxelGridFilter by Henry Pan at 2020.06.19
+        // Voxel Grid Filter的Leaf Size应该尽可能小，在实例中使用的Leaf Size为0.1m，
+        // 过大的Leaf Size虽然会使得速度变快，但是聚类的结果相对会变得更差，尤其是对于反射较为微弱的物体
         static const double_t kVoxelSize = 0.1f;
         static const int kMinPointNumberPerVoxel = 1;
         roi::voxelGridFilter<PointI>(kVoxelSize, kMinPointNumberPerVoxel, cloud);

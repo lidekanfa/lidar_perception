@@ -4,17 +4,17 @@ detect: {
         # type: true, float, float, float
         # default: 60.0,999.0,999.0 in SegMatch
         # default: "Cylinder"(0,60)
-        roi_type: "Cylinder",
-        #roi_type: "Square",
+        # roi_type: "Cylinder",
+        roi_type: "Square",
         # ROI filter needs lidar installed height
         roi_lidar_height_m: 1.73,
         ## Horizontal range
         #--- for "Cylinder"
-        roi_radius_min_m: 2.,
-        roi_radius_max_m: 120.,
+        # roi_radius_min_m: 2.,
+        # roi_radius_max_m: 120.,
         #--- for "Square"
-        #roi_radius_min_m: 15.,
-        #roi_radius_max_m: 120.,
+        roi_radius_min_m: 15.,
+        roi_radius_max_m: 120.,
         # Vertical range
         roi_height_below_m: 1.,
         roi_height_above_m: 20.,
